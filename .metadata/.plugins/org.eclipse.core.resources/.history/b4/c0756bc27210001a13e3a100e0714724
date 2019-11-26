@@ -1,0 +1,14 @@
+package com.db1start.cidadesapi.services;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class EstadoServiceTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

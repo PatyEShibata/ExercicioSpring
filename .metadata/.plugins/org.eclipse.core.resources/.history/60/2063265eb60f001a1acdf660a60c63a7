@@ -1,0 +1,24 @@
+package com.db1start.cidadesapi;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Estado {
+private String nome;
+	
+	List<Cidade> cidades;
+	
+	public Estado (String nome) {
+		this.nome = nome;
+		this.cidades = new ArrayList<>();
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public List<Cidade> getCidades(){
+		return cidades;
+	}
+
+}

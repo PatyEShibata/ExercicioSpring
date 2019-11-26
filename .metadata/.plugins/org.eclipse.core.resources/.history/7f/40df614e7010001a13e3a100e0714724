@@ -1,0 +1,5 @@
+package com.db1start.cidadesapi.repository;
+
+public interface EstadoRepository {
+
+}
