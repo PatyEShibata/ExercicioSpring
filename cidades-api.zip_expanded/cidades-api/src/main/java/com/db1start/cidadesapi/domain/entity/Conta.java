@@ -17,9 +17,12 @@ public class Conta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name = "saldo")
+		
+	@Column(name = "saldo", length=10, precision = 2)
 	private Double saldo;
+	
+	@Column (name = "numero")
+	private String numero;
 	
 	@OneToOne
 	@JoinColumn (name = "cliente_id")
@@ -28,12 +31,18 @@ public class Conta {
 	@ManyToOne
 	@JoinColumn (name = "agencia_id")
 	private Agencia agencia;
+		
+	public enum EstadoConta {
+	    ATIVA,
+	    INATIVA;
+	}
 
 	public Conta() {
 		
 	}
 	
-	public Conta(Double saldo, Cliente cliente, Agencia agencia) {
+	public Conta(String numeroConta, Double saldo, Cliente cliente, Agencia agencia) {
+		this.numero = numeroConta;
 		this.saldo = saldo;
 		this.cliente = cliente;
 		this.agencia = agencia;
@@ -69,6 +78,14 @@ public class Conta {
 
 	public void setAgencia(Agencia agencia) {
 		this.agencia = agencia;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 	
 	

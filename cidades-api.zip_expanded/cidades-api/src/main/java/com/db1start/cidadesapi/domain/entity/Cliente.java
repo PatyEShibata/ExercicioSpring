@@ -34,6 +34,25 @@ public class Cliente {
 		this.cpf = cpf;
 		this.telefone = telefone;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	
+	
 	
 	
 }
