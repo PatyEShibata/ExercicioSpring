@@ -28,30 +28,21 @@ class CidadeServiceTest {
 	public CidadeService cidadeService;
 	
 	@Autowired
-	public AgenciaService agenciaService;
-	
-	@Autowired
 	public EstadoService estadoService;
 	
 	@AfterEach
 	public void clean() {
 		cidadeService.limpar();
-		agenciaService.limpar();
 		estadoService.limpar();
 	}
 	
 	@BeforeEach
 	public void antes() {
-		Estado parana = estadoService.criar("Parainá");
+		Estado parana = estadoService.criar("Paraná");
 		
 		Cidade maringa = cidadeService.criar("Maringá", parana);
 		Cidade curitiba = cidadeService.criar("Curitiba", parana);
-		
-		agenciaService.criar("1", "1234", maringa);
-		agenciaService.criar("2","5678", maringa);
-		agenciaService.criar("3","91234", curitiba);
 	}
-
 
 	@Test
 	public void test() {

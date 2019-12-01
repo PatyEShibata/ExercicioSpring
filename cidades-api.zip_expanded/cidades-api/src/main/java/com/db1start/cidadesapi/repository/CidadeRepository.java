@@ -12,5 +12,5 @@ import com.db1start.cidadesapi.domain.entity.Cidade;
 public interface CidadeRepository extends JpaRepository<Cidade, Long> {
 	
 	Optional<Cidade> findByNome(String nome);
-	List<Cidade> findByEstadoNome(String nomeEstado);
+	List<Cidade> findByUfNome(String nomeEstado);
 }

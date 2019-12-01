@@ -38,7 +38,7 @@ public class CidadeService {
 	}
 	
 	public List<Cidade> buscarTodasCidadesDeUmEstado(String nomeEstado){
-		return cidadeRepository.findByEstadoNome(nomeEstado);
+		return cidadeRepository.findByUfNome(nomeEstado);
 	}
 	
 	public List <Cidade> buscarTodasCidades(){

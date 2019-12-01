@@ -26,7 +26,7 @@ public class EstadoService {
 	}
 	
 	public void deletar(String nome) {
-		Estado estado = this.buscarPorNome(nome); 
+		Estado estado = buscarPorNome(nome); 
 		 estadoRepository.delete(estado);
 	}
 	
