@@ -3,10 +3,10 @@ package com.db1start.cidadesapi.dto;
 import com.db1start.cidadesapi.domain.entity.Cidade;
 
 public class AgenciaFormDTO {
+	
+	private Long cidadeId;
 
 	private String numero;
-	
-	private Cidade cidade;
 	
 	private String numeroBanco;
 
@@ -18,13 +18,6 @@ public class AgenciaFormDTO {
 		this.numero = numero;
 	}
 
-	public Cidade getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(Cidade cidade) {
-		this.cidade = cidade;
-	}
 
 	public String getNumeroBanco() {
 		return numeroBanco;
@@ -32,6 +25,14 @@ public class AgenciaFormDTO {
 
 	public void setNumeroBanco(String numeroBanco) {
 		this.numeroBanco = numeroBanco;
+	}
+
+	public Long getCidadeId() {
+		return cidadeId;
+	}
+
+	public void setCidadeId(Long cidadeId) {
+		this.cidadeId = cidadeId;
 	}
 	
 	

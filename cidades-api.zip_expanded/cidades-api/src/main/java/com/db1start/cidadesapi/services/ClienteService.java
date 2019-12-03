@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.db1start.cidadesapi.domain.entity.Cliente;
+import com.db1start.cidadesapi.dto.ClienteFormDTO;
 import com.db1start.cidadesapi.repository.ClienteRepository;
 
 @Service
@@ -22,18 +23,33 @@ public class ClienteService {
 	public Cliente buscarPorNome(String nome) {
 		return clienteRepository.findByNome(nome).orElseThrow(() -> new RuntimeException("cliente não encontrado"));
 	}
+	
+	public Cliente buscarPorId(Long id) {
+		return clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("cliente não encontrado"));
+	}
 
 	public void deletar(String nome) {
 		Cliente cliente = buscarPorNome(nome);
 		clienteRepository.delete(cliente);
 	}
 
+	public void deletarPorId(Long clienteId) {
+		Cliente cliente = buscarPorId(clienteId);
+		clienteRepository.deleteById(clienteId);
+	}
+	
 	public void limpar() {
 		clienteRepository.deleteAll();
 	}
 	
 	public List<Cliente> buscarTodosClientes() {
 		return clienteRepository.findAll();
+	}
+	
+	public Cliente atualizar(Long clienteId, ClienteFormDTO alteracoes) {
+		Cliente cliente = buscarPorId(clienteId);
+		cliente.setNome(alteracoes.getNome());
+		return clienteRepository.save(cliente);
 	}
 
 }

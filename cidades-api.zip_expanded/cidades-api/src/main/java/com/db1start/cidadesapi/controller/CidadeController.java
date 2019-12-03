@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,12 +35,19 @@ public class CidadeController {
 		return listaDeRetorno;
 	}
 	
-	@PostMapping("/cidade")
+	@PostMapping("/cidades")
 	public void cadastrarNovaCidade(@RequestBody CidadeFormDTO form) {
 		cidadeService.criar(form.getNome(), form.getUf());
 	}
 	
+	@PutMapping("/cidades/{cidadeid}")
+	public void atualizarCidade(@RequestBody Long cidadeId, CidadeFormDTO form) {
+		cidadeService.atualizar(cidadeId, form);
+	}
 	
-	
+	@DeleteMapping("/cidades/{cidadeid}")
+	public void deletaCidade(@RequestBody Long cidadeId) {
+		cidadeService.deletarPorId(cidadeId);
+	}
 
 }

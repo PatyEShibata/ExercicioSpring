@@ -8,7 +8,7 @@ public class AgenciaDTO {
 	
 	private String numero;
 	
-	private Cidade cidade;
+	private CidadeDTO cidade;
 
 	private String numeroBanco;
 
@@ -28,11 +28,11 @@ public class AgenciaDTO {
 		this.numero = numero;
 	}
 
-	public Cidade getCidade() {
+	public CidadeDTO getCidadeDTO() {
 		return cidade;
 	}
 
-	public void setCidade(Cidade cidade) {
+	public void setCidadeDTO(CidadeDTO cidade) {
 		this.cidade = cidade;
 	}
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.db1start.cidadesapi.domain.entity.Cidade;
 import com.db1start.cidadesapi.domain.entity.Estado;
+import com.db1start.cidadesapi.dto.EstadoFormDTO;
 import com.db1start.cidadesapi.repository.EstadoRepository;
 
 
@@ -25,9 +26,17 @@ public class EstadoService {
 		return estadoRepository.findByNome(nome).orElseThrow(() -> new RuntimeException("estado não encontrado"));
 	}
 	
+	public Estado buscarPorId(Long id) {
+		return estadoRepository.findById(id).orElseThrow(() -> new RuntimeException("estado não encontrado"));
+	}
+	
 	public void deletar(String nome) {
 		Estado estado = buscarPorNome(nome); 
 		 estadoRepository.delete(estado);
+	}
+	
+	public void deletarPorId(Long id) {
+		estadoRepository.deleteById(id);
 	}
 	
 	public List<Estado> buscarTodosEstados() {
@@ -37,5 +46,18 @@ public class EstadoService {
 	public void limpar() {
 		estadoRepository.deleteAll();
 		
+	}
+	
+	public Estado atualizar(Long estadoId, String novoNome) {
+        Estado estado = buscarPorId(estadoId);
+        estado.setNome(novoNome);
+        return estadoRepository.save(estado);
+    }
+
+	
+	public Estado atualizar (Long estadoId, EstadoFormDTO alteracoes) {
+		Estado estado = buscarPorId(estadoId);
+		estado.setNome(alteracoes.getNome());
+		return estadoRepository.save(estado);
 	}
 }

@@ -9,6 +9,7 @@ import com.db1start.cidadesapi.domain.entity.Agencia;
 import com.db1start.cidadesapi.domain.entity.Cliente;
 import com.db1start.cidadesapi.domain.entity.Conta;
 import com.db1start.cidadesapi.domain.entity.Conta.EstadoConta;
+import com.db1start.cidadesapi.dto.ContaFormDTO;
 import com.db1start.cidadesapi.repository.ContaRepository;
 
 @Service
@@ -26,6 +27,10 @@ public class ContaService {
 		return contaRepository.findByNumero(numeroConta).orElseThrow(() -> new RuntimeException ("conta não encontrada"));
 	}
 	
+	public Conta buscarPorId(Long id) {
+		return contaRepository.findById(id).orElseThrow(() -> new RuntimeException ("conta não encontrada"));
+	}
+	
 	public EstadoConta buscarContasAtivas() {
 		EstadoConta estadoConta = EstadoConta.ATIVA;
 		return estadoConta.ATIVA;
@@ -38,6 +43,11 @@ public class ContaService {
 	
 	public void deletar(String numeroConta) {
 		Conta conta = buscarPorNumero(numeroConta);
+		contaRepository.delete(conta);
+	}
+	
+	public void deletarPorId(Long contaId) {
+		Conta conta = buscarPorId(contaId);
 		contaRepository.delete(conta);
 	}
 
@@ -55,6 +65,12 @@ public class ContaService {
 	
 	public List<Conta> buscarTodasContasNaAgencia(String numero) {
 		return contaRepository.findByAgenciaNumero(numero);
+	}
+	
+	public Conta atualizar(Long contaId, ContaFormDTO alteracoes) {
+		Conta conta = buscarPorId(contaId);
+		conta.setNumero(alteracoes.getNumero());
+		return contaRepository.save(conta);
 	}
 	
 }
