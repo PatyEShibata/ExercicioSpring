@@ -53,6 +53,26 @@ public class Cidade {
 		return agencias;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setUf(Estado uf) {
+		this.uf = uf;
+	}
+
+	public void setAgencias(List<Agencia> agencias) {
+		this.agencias = agencias;
+	}
+
 	
 	
 }
