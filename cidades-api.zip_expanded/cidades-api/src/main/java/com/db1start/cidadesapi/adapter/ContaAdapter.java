@@ -9,9 +9,9 @@ public class ContaAdapter {
 		ContaDTO dto = new ContaDTO();
 		dto.setId(conta.getId());
 		dto.setNumero(conta.getNumero());
-		dto.setCliente(conta.getCliente());
+		dto.setCliente(ClienteAdapter.transformaEntidadeParaDTO(conta.getCliente()));
 		dto.setSaldo(conta.getSaldo());
-		dto.setAgencia(conta.getAgencia());
+		dto.setAgencia(AgenciaAdapter.transformaEntidadeParaDTO(conta.getAgencia()));
 		return dto;
 	}
 }

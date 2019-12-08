@@ -14,6 +14,10 @@ public class ClienteService {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
+	
+	public Cliente criar(ClienteFormDTO dto) {
+		return criar(dto.getNome(), dto.getCpf(), dto.getTelefone());
+	}
 
 	public Cliente criar(String nome, String cpf, String telefone) {
 		Cliente cliente = new Cliente(nome, cpf, telefone);
@@ -34,7 +38,6 @@ public class ClienteService {
 	}
 
 	public void deletarPorId(Long clienteId) {
-		Cliente cliente = buscarPorId(clienteId);
 		clienteRepository.deleteById(clienteId);
 	}
 	
@@ -49,6 +52,8 @@ public class ClienteService {
 	public Cliente atualizar(Long clienteId, ClienteFormDTO alteracoes) {
 		Cliente cliente = buscarPorId(clienteId);
 		cliente.setNome(alteracoes.getNome());
+		cliente.setCpf(alteracoes.getCpf());
+		cliente.setTelefone(alteracoes.getTelefone());
 		return clienteRepository.save(cliente);
 	}
 

@@ -9,9 +9,9 @@ public class ContaFormDTO {
 
 	private String numero;
 
-	private Cliente cliente;
+	private Long clienteId;
 
-	private Agencia agencia;
+	private Long agenciaId;
 
 	public Double getSaldo() {
 		return saldo;
@@ -29,21 +29,22 @@ public class ContaFormDTO {
 		this.numero = numero;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Long getClienteId() {
+		return clienteId;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setClienteId(Long clienteId) {
+		this.clienteId = clienteId;
 	}
 
-	public Agencia getAgencia() {
-		return agencia;
+	public Long getAgenciaId() {
+		return agenciaId;
 	}
 
-	public void setAgencia(Agencia agencia) {
-		this.agencia = agencia;
+	public void setAgenciaId(Long agenciaId) {
+		this.agenciaId = agenciaId;
 	}
+
 
 	
 }

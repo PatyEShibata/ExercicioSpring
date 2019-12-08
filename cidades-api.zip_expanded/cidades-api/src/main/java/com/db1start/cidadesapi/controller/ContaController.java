@@ -39,7 +39,7 @@ public class ContaController {
 	
 	@PostMapping("/contas")
 	public void cadastrarNovaConta(@RequestBody ContaFormDTO form) {
-		contaService.criar(form.getNumero(), form.getSaldo(), form.getAgencia(), form.getCliente());
+		contaService.criar(form);
 	}
 	
 	@PutMapping("/contas/{contaId}")

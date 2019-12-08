@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.db1start.cidadesapi.adapter.CidadeAdapter;
 import com.db1start.cidadesapi.domain.entity.Agencia;
 import com.db1start.cidadesapi.domain.entity.Cidade;
 import com.db1start.cidadesapi.domain.entity.Estado;
@@ -18,6 +19,13 @@ public class CidadeService {
 	@Autowired
 	private CidadeRepository cidadeRepository;
 	
+	@Autowired
+	private EstadoService estadoService;
+
+	public Cidade criar(CidadeFormDTO dto) {
+		Estado estado = estadoService.buscarPorId(dto.getEstadoId());
+		return criar(dto.getNome(), estado);
+	}
 
 	public Cidade criar(String nome, Estado estado) {
 		Cidade cidade = new Cidade(nome, estado);
@@ -38,7 +46,6 @@ public class CidadeService {
 	}
 
 	public void deletarPorId(Long id) {
-		Cidade cidade = buscarPorId(id);
 		cidadeRepository.deleteById(id);
 	}
 	
@@ -58,6 +65,7 @@ public class CidadeService {
 	public Cidade atualizar(Long cidadeId, CidadeFormDTO alteracoes) {
 		Cidade cidade = buscarPorId(cidadeId);
 		cidade.setNome(alteracoes.getNome());
+		cidade.setUf(estadoService.buscarPorId(alteracoes.getEstadoId()));
 		return cidadeRepository.save(cidade);
 	}
 	

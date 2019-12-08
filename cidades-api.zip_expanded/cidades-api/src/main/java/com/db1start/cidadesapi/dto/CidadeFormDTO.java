@@ -6,7 +6,7 @@ public class CidadeFormDTO {
 
 	private String nome;
 
-	private Estado uf;
+	private Long estadoId;
 
 	public String getNome() {
 		return nome;
@@ -16,13 +16,14 @@ public class CidadeFormDTO {
 		this.nome = nome;
 	}
 
-	public Estado getUf() {
-		return uf;
+	public Long getEstadoId() {
+		return estadoId;
 	}
 
-	public void setUf(Estado uf) {
-		this.uf = uf;
+	public void setEstadoId(Long estadoId) {
+		this.estadoId = estadoId;
 	}
+
 	
 	
 }

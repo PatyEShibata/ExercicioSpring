@@ -65,6 +65,8 @@ public class AgenciaService {
 	public Agencia atualizar(Long agenciaId, AgenciaFormDTO alteracoes) {
 		Agencia agencia = buscarPorId(agenciaId);
 		agencia.setNumero(alteracoes.getNumero());
+		agencia.setNumeroBanco(alteracoes.getNumeroBanco());
+		agencia.setCidade(cidadeService.buscarPorId(alteracoes.getCidadeId()));
 		return agenciaRepository.save(agencia);
 		
 	}

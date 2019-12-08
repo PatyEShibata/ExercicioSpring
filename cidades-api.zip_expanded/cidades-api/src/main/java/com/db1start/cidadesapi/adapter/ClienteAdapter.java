@@ -7,6 +7,7 @@ public class ClienteAdapter {
 	
 	public static ClienteDTO transformaEntidadeParaDTO(Cliente cliente) {
 		ClienteDTO dto = new ClienteDTO();
+		dto.setId(cliente.getId());
 		dto.setNome(cliente.getNome());
 		dto.setCpf(cliente.getCpf());
 		dto.setTelefone(cliente.getTelefone());

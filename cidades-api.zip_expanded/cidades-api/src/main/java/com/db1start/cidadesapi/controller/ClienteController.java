@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,16 +38,16 @@ public class ClienteController {
 	
 	@PostMapping("/clientes")
 	public void cadastrarNovoCliente(@RequestBody ClienteFormDTO form) {
-		clienteService.criar(form.getNome(), form.getCpf(), form.getTelefone());
+		clienteService.criar(form);
 	}
 	
 	@PutMapping("/clientes/{clienteId}")
-	public void atualizaCliente(@RequestBody Long clienteId, ClienteFormDTO form) {
+	public void atualizaCliente(@PathVariable Long clienteId, @RequestBody ClienteFormDTO form) {
 		clienteService.atualizar(clienteId, form);
 	}
 	
 	@DeleteMapping("/clientes/{clienteId}")
-	public void deletaCliente(@RequestBody Long clienteId) {
+	public void deletaCliente(@PathVariable Long clienteId) {
 		clienteService.deletarPorId(clienteId);
 	}
 }

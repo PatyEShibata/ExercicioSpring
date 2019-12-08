@@ -8,8 +8,8 @@ public class CidadeDTO {
 	
 	private String nome;
 	
-	private Estado uf;
-
+	private EstadoDTO estado;
+	
 	public Long getId() {
 		return id;
 	}
@@ -26,11 +26,14 @@ public class CidadeDTO {
 		this.nome = nome;
 	}
 
-	public Estado getUf() {
-		return uf;
+	public EstadoDTO getEstado() {
+		return estado;
 	}
 
-	public void setUf(Estado uf) {
-		this.uf = uf;
+	public void setEstadoDTO(EstadoDTO estado) {
+		this.estado = estado;
 	}
+
+
+	
 }

@@ -11,9 +11,9 @@ public class ContaDTO {
 
 	private String numero;
 
-	private Cliente cliente;
+	private ClienteDTO cliente;
 
-	private Agencia agencia;
+	private AgenciaDTO agencia;
 
 	public Long getId() {
 		return id;
@@ -39,20 +39,21 @@ public class ContaDTO {
 		this.numero = numero;
 	}
 
-	public Cliente getCliente() {
+	public ClienteDTO getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(ClienteDTO cliente) {
 		this.cliente = cliente;
 	}
 
-	public Agencia getAgencia() {
+	public AgenciaDTO getAgencia() {
 		return agencia;
 	}
 
-	public void setAgencia(Agencia agencia) {
+	public void setAgencia(AgenciaDTO agencia) {
 		this.agencia = agencia;
 	}
+
 
 }
